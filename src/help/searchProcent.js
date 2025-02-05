@@ -1,0 +1,1 @@
+export const SearchProcent = (startSteps, steps) => Math.round((steps / startSteps) * 100);
