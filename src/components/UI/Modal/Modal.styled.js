@@ -15,16 +15,21 @@ export const Modal = styled(motion.div)`
 export const ModalWrapper = styled.div`
     position: relative;
     
-    padding: 10px 100px;
+    padding: 1vw 9vw;
 
-    display: flex;
+    /* display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column; */
     /* flex-direction: column; */
 
     background-color: white;
     height: 300px;
     border-radius: 30px;
+
+    h1{
+        margin-bottom: 20px;
+    }
 `
 
 export const CloseModal = styled.p`
