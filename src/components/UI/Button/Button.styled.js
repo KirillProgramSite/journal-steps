@@ -12,4 +12,10 @@ export const Button = styled(motion.button)`
     cursor: pointer;
     padding: 5px 10px;
     border-radius: 30px;
+
+    &:disabled{
+        background-color: grey;
+        opacity: 0.5;
+        cursor: no-drop;
+    }
 `
