@@ -12,18 +12,11 @@ const App = () => {
     const [startSteps, setStartSteps] = useState(0)
     const [steps, setSteps] = useState(0)
     const [active, setActive] = useState(true)
+    const date = new Date();
 
 
     const [modalSteps, setModalSteps] = useState(false)
     const [modalStartSteps, setModalStartSteps] = useState(true)
-
-    useEffect(() => {
-        const date = new Date();
-
-        if(date.getHours() === 9){
-            setActive(true)
-        }
-    }, )
 
 
 
@@ -55,11 +48,7 @@ const App = () => {
                         max={startSteps}
                     />
                 </div>
-                {active === true ? (
-                    <Button style={{ marginTop: 50 }} onClick={() => setModalSteps(true)}>Add note for steps +</Button>
-                ) : (
-                    <Button disabled style={{ marginTop: 50 }} onClick={() => setModalSteps(true)}>Add note for steps +</Button>
-                )}
+                <Button disabled={date.getHours() === 20 ? false : true} style={{ marginTop: 50 }} onClick={() => setModalSteps(true)}>Add note for steps +</Button>
             </div>
         </>
     )
