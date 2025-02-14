@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../../UI/Input/Input.styled";
 import { Button } from "../../UI/Button/Button.styled";
+import { calcCalories } from "../../../help/calcCalories";
 
 
-const FormAddSteps = ({ setSteps, setModalSteps, setActive }) => {
+const FormAddSteps = ({ setSteps, setModalSteps, setActive, setCalories, weight }) => {
 
     const { register,
         handleSubmit,
@@ -15,8 +16,8 @@ const FormAddSteps = ({ setSteps, setModalSteps, setActive }) => {
 
     const onSubmitSteps = data => {
         setSteps(prevStep => prevStep + Number(data.steps));
+        setCalories(prevCalories => prevCalories + calcCalories(Number(data.steps), weight))
         setModalSteps(false)
-        setActive(false)
         reset();
     }
 

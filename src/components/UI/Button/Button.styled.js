@@ -18,4 +18,8 @@ export const Button = styled(motion.button)`
         opacity: 0.5;
         cursor: no-drop;
     }
+
+    @media(max-width: 430px){
+        margin-top:10px;
+    }
 `

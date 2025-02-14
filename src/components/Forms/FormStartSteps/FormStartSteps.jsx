@@ -3,7 +3,7 @@ import { Input } from "../../UI/Input/Input.styled";
 import { useForm } from "react-hook-form";
 
 
-const FormStartSteps = ({setStartSteps, setModalStartSteps}) => {
+const FormStartSteps = ({setStartSteps, setModalStartSteps, setModalWeight}) => {
     const { register,
             handleSubmit,
             reset,
@@ -13,6 +13,7 @@ const FormStartSteps = ({setStartSteps, setModalStartSteps}) => {
     const onSubmitStartSteps = data => {
         setStartSteps(prevStep => prevStep + Number(data.startSteps))
         setModalStartSteps(false)
+        setModalWeight(true)
         reset();
     }
 

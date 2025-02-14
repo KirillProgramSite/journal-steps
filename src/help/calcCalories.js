@@ -1,0 +1,1 @@
+export const calcCalories = (steps, weigth) => Math.round(steps * 0.75 * weigth * 0.000785)

@@ -7,29 +7,53 @@ import { Button } from './components/UI/Button/Button.styled';
 
 import FormStartSteps from './components/Forms/FormStartSteps/FormStartSteps';
 import FormAddSteps from './components/Forms/FormAddSteps/FormAddSteps';
+import FormAddWeight from './components/Forms/FormAddWeight/FormAddWeight';
+import { restartButton } from './help/restartButton';
 
 const App = () => {
     const [startSteps, setStartSteps] = useState(0)
     const [steps, setSteps] = useState(0)
     const [active, setActive] = useState(true)
-    const date = new Date();
-
+    const [weight, setWeight] = useState(0)
+    const [calories, setCalories] = useState(0)
 
     const [modalSteps, setModalSteps] = useState(false)
     const [modalStartSteps, setModalStartSteps] = useState(true)
+    const [modalWeight, setModalWeight] = useState(false)
 
-
+    useEffect(() => {
+        restartButton(setActive);
+        const interval = setInterval(restartButton, 60000)
+    
+        return () => clearInterval(interval);
+      }, []);
 
 
 
     return (
         <>
             <ModalWindow modal={modalStartSteps} setModal={setModalStartSteps}>
-                <FormStartSteps setStartSteps={setStartSteps} setModalStartSteps={setModalStartSteps} />
+                <FormStartSteps 
+                    setModalWeight={setModalWeight} 
+                    setStartSteps={setStartSteps} 
+                    setModalStartSteps={setModalStartSteps} 
+                />
             </ModalWindow>
 
             <ModalWindow modal={modalSteps} setModal={setModalSteps}>
-                <FormAddSteps setActive={setActive} setSteps={setSteps} setModalSteps={setModalSteps} />
+                <FormAddSteps 
+                    weight={weight} 
+                    setCalories={setCalories}
+                    setSteps={setSteps} 
+                    setModalSteps={setModalSteps} 
+                />
+            </ModalWindow>
+
+            <ModalWindow modal={modalWeight} setModal={setModalWeight}>
+                <FormAddWeight 
+                    setWeight={setWeight} 
+                    setModalWeight={setModalWeight} 
+                />
             </ModalWindow>
 
 
@@ -47,8 +71,18 @@ const App = () => {
                         min="0"
                         max={startSteps}
                     />
+                    <p style={{marginTop: 20, fontSize: 30, fontWeight: "bold"}}
+                    >
+                        Calories: <span style={{color: "#FF8C00"}}>{calories}</span>
+                    </p>
                 </div>
-                <Button disabled={date.getHours() === 20 ? false : true} style={{ marginTop: 50 }} onClick={() => setModalSteps(true)}>Add note for steps +</Button>
+                <Button 
+                    disabled={active} 
+                    style={{ marginTop: 50 }} 
+                    onClick={() => setModalSteps(true)}
+                >
+                    Add note for steps +
+                    </Button>
             </div>
         </>
     )
