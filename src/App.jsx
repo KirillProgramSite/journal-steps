@@ -71,9 +71,6 @@ const App = () => {
                     {/* <p>Steps</p> <p>Statistics</p> */}
                 </div>
                 <div className="main">
-                    <div>
-                        Edit Info
-                    </div>
                     <h1 className='steps'>{steps}</h1>
                     <motion.p 
                         style={{cursor: "pointer"}}
