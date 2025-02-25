@@ -5,7 +5,6 @@ import { calcCalories } from "../../../help/calcCalories";
 
 
 const FormAddSteps = ({ setSteps, setModalSteps, setActive, setCalories, weight }) => {
-
     const { register,
         handleSubmit,
         reset,

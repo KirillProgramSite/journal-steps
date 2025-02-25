@@ -3,6 +3,7 @@ import { Input } from "../../UI/Input/Input.styled";
 import { Button } from "../../UI/Button/Button.styled";
 
 
+
 const FormAddWeight = ({ setWeight, setModalWeight}) => {
 
     const { register,
